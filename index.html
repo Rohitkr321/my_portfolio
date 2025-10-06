@@ -4,429 +4,1255 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rohit personal portfolio </title>
-
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-    <!-- custom css file link  -->
+    <title>Rohit Kumar - Software Engineer L3 | General Aeronautics</title>
+    <meta name="description" content="Rohit Kumar - Software Engineer L3 at General Aeronautics. 3+ years of experience in full-stack development, and drone operations systems.">
+    <meta name="keywords" content="Software Engineer, Full Stack Developer, React.js, Node.js, MongoDB">
+    <meta name="author" content="Rohit Kumar">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Rohit Kumar - Software Engineer L3">
+    <meta property="og:description" content="Software Engineer L3 at General Aeronautics with expertise in full-stack development.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rohitkumar.dev">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 <body>
-
-<!-- custom cursors  -->
-<div class="cursor-1"></div>
-<div class="cursor-2"></div>
-
-
-<div id="menu-bars" class="fas fa-bars"></div>
-    
-<!-- header section starts  -->
-
-<header>
-
-    <a href="#" class="logo"> <span>rohit</span> kumar </a>
-
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-container">
+            <div class="loading-logo">
+                <div class="loading-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="loading-text">
+                    <span class="loading-name">Rohit Kumar</span>
+                    <div class="loading-subtitle">Software Engineer L3</div>
+                </div>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <div class="loading-percentage">0%</div>
+        </div>
+    </div>
+    <!-- Navigation -->
     <nav class="navbar">
-        <a href="#home">home</a>
-        <a href="#about">about</a>
-        <a href="#service">Full-Stack</a>
-        <a href="#portfolio">portfolio</a>
-        <a href="#contact">contact</a>
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-name">Rohit</span>
+                    <span class="logo-accent">Kumar</span>
+                </div>
+    </div>
+            
+            <!-- Right side actions -->
+            <div class="nav-actions">
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" id="theme-toggle" title="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <!-- Hamburger Menu -->
+                <button class="hamburger-menu" id="nav-toggle" title="Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+    </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div class="mobile-menu" id="nav-menu">
+            <a href="#home" class="mobile-menu-link active">
+                <i class="fas fa-home"></i>
+                <span data-translate="nav-home">Home</span>
+            </a>
+            <a href="#about" class="mobile-menu-link">
+                <i class="fas fa-user"></i>
+                <span data-translate="nav-about">About</span>
+            </a>
+            <a href="#experience" class="mobile-menu-link">
+                <i class="fas fa-briefcase"></i>
+                <span data-translate="nav-experience">Experience</span>
+            </a>
+            <a href="#skills" class="mobile-menu-link">
+                <i class="fas fa-cogs"></i>
+                <span data-translate="nav-skills">Skills</span>
+            </a>
+            <a href="#projects" class="mobile-menu-link">
+                <i class="fas fa-project-diagram"></i>
+                <span data-translate="nav-projects">Projects</span>
+            </a>
+            <a href="#certificates" class="mobile-menu-link">
+                <i class="fas fa-certificate"></i>
+                <span data-translate="nav-certificates">Certificates</span>
+            </a>
+            <a href="#testimonials" class="mobile-menu-link">
+                <i class="fas fa-quote-left"></i>
+                <span data-translate="nav-testimonials">Testimonials</span>
+            </a>
+            <a href="#contact" class="mobile-menu-link">
+                <i class="fas fa-envelope"></i>
+                <span data-translate="nav-contact">Contact</span>
+            </a>
+    </div>
     </nav>
 
-    <div class="follow">
-        <a href="https://www.facebook.com/rohitkumar062" class="fab fa-facebook-f"></a>
-        <a href="https://twitter.com/Rohitkumar9331" class="fab fa-twitter"></a>
-        <a href="http://github.com/Rohitkr321" class="fab fa-github"></a>
-        <a href="https://www.linkedin.com/in/rohit-kumar-a5774319a/" class="fab fa-linkedin"></a>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Background Elements -->
+        <div class="hero-bg-elements">
+            <div class="bg-shape shape-1"></div>
+            <div class="bg-shape shape-2"></div>
+            <div class="bg-shape shape-3"></div>
+            <div class="particles-container" id="particles"></div>
     </div>
 
-</header>
-
-<!-- header section ends -->
-
-<!-- home section starts  -->
-
-<section class="home" id="home">
-
-    <div class="content">
-        <span class="hi"> hi there... </span>
-        <h3> i am <span> rohit kumar</span> </h3>
-        <p class="info"> i am a Full stack developer </p>
-        <p class="text"> I wish to work in a growth-oriented company and contribute to the development of the organization while upgrading my skill set and knowledge.
-            
-        </p>
-        <a href="#about" class="btn">about me</a>
-    </div>
-
-    <div class="image">
-        <img src="images/profile.jpg" alt="">
-    </div>
-
-</section>
-
-<!-- home section ends -->
-
-<!-- about section starts  -->
-
-<section class="about" id="about">
-
-<h1 class="heading"> about <span> me </span> </h1>
-
-<div class="row-1">
-
-    <div class="image">
-        <img src="images/photo_rohit.jpg" alt="">
-    </div>
-
-    <div class="content">
-        <h3> my name is rohit kumar & i am a Full Stack developer </h3>
-        <p>I am seeking opportunities to join a company which provides the chance to improve my skills to learn and grow along with the organisation goals. I always try to solve real time problem with my technical skills.Looking for an entry-level position in the field of Information Technology, in a company whose values and goals are in conjunction with my own value and skill set. I wish to contribute to a dynamic team of individuals motivated to achieve the company’s goal while aiding my personal growth.</p>
-        <div class="box-container">
-            <div class="box">
-                <p> <span> age : </span> 22 </p>
-                <p> <span> gender : </span> male </p>
-                <p> <span> language : </span> hindi, english,Punjabi </p>
-                <p> <span> work : </span> full-stck developer </p>
+        <div class="hero-container">
+            <div class="hero-content" data-aos="fade-right">
+                <div class="hero-greeting">
+                    <span class="greeting-text">
+                        <span class="greeting-animation" data-translate="greeting">Hello, I'm</span>
+                    </span>
             </div>
-            <div class="box">
-                <p> <span> freelance : </span> available </p>
-                <p> <span> phone : </span> +91 9334156392 </p>
-                <p> <span> email : </span> rohitkumar9122565209@gmail.com </p>
-                <p> <span> country : </span> india </p>
+                <h1 class="hero-name">
+                    <span class="name-highlight typing-animation">Rohit Kumar</span>
+                    <div class="cursor-blink">|</div>
+                </h1>
+                <div class="hero-title">
+                    <span class="title-text">
+                        <span class="title-words">
+                            <span class="word" data-translate="title1">Software Engineer L3</span>
+                            <span class="word" data-translate="title2">Full Stack Developer</span>
+                            <span class="word" data-translate="title3">Full Stack Developer</span>
+                        </span>
+                    </span>
+                    <span class="title-company">@ General Aeronautics</span>
             </div>
+                <p class="hero-description">
+                    Experienced Software Engineer with 3+ years of expertise in full-stack 
+                    development. Currently working as Software Engineer L3 at General Aeronautics, where I develop 
+                    cutting-edge solutions for full-stack development.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <span class="btn-text">Get In Touch</span>
+                        <div class="btn-wave"></div>
+                    </a>
+                    <a href="./resume/Rohit-Resume-Profile (1).pdf" download class="btn btn-secondary">
+                        <i class="fas fa-download"></i>
+                        <span>Download CV</span>
+                    </a>
         </div>
-        <a class='btn'href="./resume/rohit_kumar_it.pdf" download rel="noopener noreferrer" target="_blank">
-            Download Cv
-         </a>
-        <!-- <a href="#" class="btn">hire me</a> -->
+                <div class="hero-social">
+                    <a href="https://github.com/Rohitkr321" class="social-link" target="_blank" data-tooltip="GitHub">
+                        <i class="fab fa-github"></i>
+                        <div class="social-ripple"></div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rohit-kumar-a5774319a/" class="social-link" target="_blank" data-tooltip="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                        <div class="social-ripple"></div>
+                    </a>
+                    <a href="https://twitter.com/Rohitkumar9331" class="social-link" target="_blank" data-tooltip="Twitter">
+                        <i class="fab fa-twitter"></i>
+                        <div class="social-ripple"></div>
+                    </a>
+                    <a href="https://www.facebook.com/rohitkumar062" class="social-link" target="_blank" data-tooltip="Facebook">
+                        <i class="fab fa-facebook"></i>
+                        <div class="social-ripple"></div>
+                    </a>
     </div>
 
+                <!-- Achievement Badges -->
+                <div class="achievement-badges">
+                    <div class="badge">
+                        <i class="fas fa-code"></i>
+                        <span>3+ Years Experience</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-rocket"></i>
+                        <span>25+ Projects</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-trophy"></i>
+                        <span>5⭐ C++ Rating</span>
+                    </div>
+                </div>
 </div>
 
-<h1 class="heading"> <span> my </span> learning </h1>
-
-<div class="row-2">
-
-    <div class="skills">
-        <div class="progress">
-            <h3> web development <span> 90% </span> </h3>
-            <div class="bar"> <span></span> </div>
+            <div class="hero-image" data-aos="fade-left">
+                <div class="image-container">
+                    <div class="image-wrapper">
+                        <img src="images/profile.png" alt="Rohit Kumar - Full Stack Developer" class="profile-img">
+                        <div class="image-overlay">
+                            <div class="status-indicator">
+                                <div class="status-dot"></div>
+                                <span>Available for work</span>
+                            </div>
+                        </div>
+                        <!-- Image Glow Effect -->
+                        <div class="image-glow"></div>
+                    </div>
+                    <div class="image-bg"></div>
+                    <div class="floating-elements">
+                        <div class="floating-icon react-icon" data-tooltip="React.js">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <div class="floating-icon node-icon" data-tooltip="Node.js">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <div class="floating-icon js-icon" data-tooltip="JavaScript">
+                            <i class="fab fa-js-square"></i>
+                        </div>
+                        <div class="floating-icon git-icon" data-tooltip="Git">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <div class="floating-icon mongo-icon" data-tooltip="MongoDB">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="floating-icon aws-icon" data-tooltip="AWS">
+                            <i class="fab fa-aws"></i>
+                        </div>
         </div>
-        <div class="progress">
-            <h3> Data structure <span> 70% </span> </h3>
-            <div class="bar"> <span></span> </div>
         </div>
-        <div class="progress">
-            <h3> UI design <span> 65% </span> </h3>
-            <div class="bar"> <span></span> </div>
         </div>
-        <div class="progress">
-            <h3> problem solving <span> 50% </span> </h3>
-            <div class="bar"> <span></span> </div>
         </div>
        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-text">Discover More</div>
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
     </div>
-
-    <div class="box-container">
-        <div class="box">
-            <img class='logos'src="./images/c++.png" alt="">
-            <p>5⭐ in CPP & problem solving in also On hackerRank platform</p>
-            <a class='profilelink'href="https://www.hackerrank.com/rohitkumar912251">Rohit on Hackerank</a>
         </div>
         
-        <div class="box">
-            <img class='codecheflogos'src="./images/codechef.jpg" alt="">
-            <h3>30+</h3>
-            <p>question solve in long day challenge on codechef platform </p>
-            <a class='profilelink'href="https://www.codechef.com/users/rohit_9122">Codechef With Rohit</a>
+        <!-- Mouse Tracker -->
+        <div class="mouse-tracker"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title" data-translate="about-title">About <span class="title-accent">Me</span></h2>
+                <p class="section-subtitle" data-translate="about-subtitle">Get to know me better</p>
         </div>
-        <div class="box">
-            <img class='githublogos'src="./images/github.png" alt="">
-            <h3> >>10+ </h3>
-            <p>projects completed</p>
-            <a class='profilelink'href="https://github.com/Rohitkr321">Github With Rohit</a>
+            
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <h3>Software Engineer L3 & Backend Specialist</h3>
+                    <p>
+                        I am a passionate Software Engineer with 3+ years of experience in 
+                        full-stack development. Currently working as Software Engineer L3 at General Aeronautics, 
+                        where I develop cutting-edge solutions for drone operations and full-stack development.
+                        that power next-generation unmanned systems.
+                    </p>
+                    <p>
+                        My journey at General Aeronautics spans from Software Engineer Intern (2022-2023) to L1 Engineer 
+                        (2022-2024), and now L3 Engineer (Apr 2025 - Present). I'm driven by the challenge of solving 
+                        complex technical problems and building scalable systems that enable modern web applications 
+                        and advanced data analytics.
+                    </p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">3+</div>
+                            <div class="stat-label">Years Experience</div>
         </div>
-        <div class="box">
-            <img class='logos'src="./images/leetcode.png" alt="">
-            <h3> >> 20+ </h3>
-            <p>solve Leetcode problem </p>
-            <a class='profilelink'href="https://leetcode.com/rohitkumar933/">Leetcode with Rohit</a>
+                        <div class="stat-item">
+                            <div class="stat-number">25+</div>
+                            <div class="stat-label">Projects Completed</div>
         </div>
-        <div class="box">
-            <h3> >> 20+ </h3>
-            <p>solve Leetcode problem </p>
+                        <div class="stat-item">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">Problems Solved</div>
         </div>
-        <div class="box">
-            <h3> 0 </h3>
-            <p>year of experience</p>
         </div>
     </div>
 
+                <div class="about-info" data-aos="fade-left">
+                    <div class="info-card">
+                        <h4>Personal Information</h4>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Name:</span>
+                                <span class="info-value">Rohit Kumar</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Age:</span>
+                                <span class="info-value">24</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Location:</span>
+                                <span class="info-value">Patna, Bihar, India</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Languages:</span>
+                                <span class="info-value">Hindi, English, Punjabi</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Phone:</span>
+                                <span class="info-value">+91 9334156392</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Email:</span>
+                                <span class="info-value">rohitkumar9122565209@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 </div>
-
 </section>
 
-<!-- about section ends -->
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Work <span class="title-accent">Experience</span></h2>
+                <p class="section-subtitle">My professional journey in full-stack development</p>
+                <div class="experience-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Career Levels</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">Company</span>
+                    </div>
+                </div>
+            </div>
 
-<!-- service section starts  -->
+            <!-- New Experience Cards Grid -->
+            <div class="experience-grid">
+                <!-- Experience Card 1 -->
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="status-badge-new">Current</div>
+                    <div class="card-header-new">
+                        <h3 class="job-title">Software Engineer L3</h3>
+                        <p class="company-name">General Aeronautics</p>
+                        <span class="job-duration">Apr 2025 - Present</span>
+                    </div>
+                    <div class="card-content-new">
+                        <p class="job-description-new">Currently working as Software Engineer L3 at General Aeronautics, a cutting-edge technology company. Leading the development of advanced full-stack applications and web solutions that power next-generation systems.</p>
+                        
+                        <div class="achievements-section">
+                            <h4 class="achievements-title">Key Achievements</h4>
+                            <ul class="achievements-list">
+                                <li class="achievement-item">
+                                    <div class="achievement-icon">🚀</div>
+                                    <p class="achievement-text">Leading development of mission-critical web applications and systems</p>
+                                </li>
+                                <li class="achievement-item">
+                                    <div class="achievement-icon">⚡</div>
+                                    <p class="achievement-text">Architecting scalable backend systems for real-time flight data processing</p>
+                                </li>
+                                <li class="achievement-item">
+                                    <div class="achievement-icon">🤖</div>
+                                    <p class="achievement-text">Implementing advanced algorithms for autonomous drone operations</p>
+                                </li>
+                                <li class="achievement-item">
+                                    <div class="achievement-icon">👥</div>
+                                    <p class="achievement-text">Mentoring junior developers and conducting code reviews for quality assurance</p>
+                                </li>
+                            </ul>
+                        </div>
 
-<section class="service" id="service">
+                        <div class="tech-section">
+                            <h4 class="tech-title">Technologies Used</h4>
+                            <div class="tech-stack-new">
+                                <span class="tech-item-new">TypeScript</span>
+                                <span class="tech-item-new">Express.js</span>
+                                <span class="tech-item-new">React.js</span>
+                                <span class="tech-item-new">Node.js</span>
+                                <span class="tech-item-new">MongoDB</span>
+                                <span class="tech-item-new">Docker</span>
+                                <span class="tech-item-new">AWS</span>
+                                <span class="tech-item-new">Full Stack</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<h1 class="heading"> <span> full stack developer </span> with </h1>
+                <!-- Experience Card 2 -->
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-header-new">
+                        <h3 class="job-title">Software Engineer L1</h3>
+                        <p class="company-name">General Aeronautics</p>
+                        <span class="job-duration">2022 - 2024</span>
+                    </div>
+                    <div class="card-content-new">
+                        <p class="job-description-new">Worked as Software Engineer L1 at General Aeronautics, contributing to the development of full-stack web solutions and applications. Gained hands-on experience in building scalable applications for modern technology industry.</p>
+                        
+                        <div class="achievements-section">
+                            <h4 class="achievements-title">Key Achievements</h4>
+                            <ul class="achievements-list">
+                                <li class="achievement-item">
+                                    <div class="achievement-icon">💻</div>
+                                    <p class="achievement-text">Developed and maintained full-stack web applications using modern tech stack</p>
+                                </li>
+                                <li class="achievement-item">
+                                    <div class="achievement-icon">🗄️</div>
+                                    <p class="achievement-text">Built scalable backend systems for drone flight management and monitoring</p>
+                                </li>
+                                <li class="achievement-item">
+                                    <div class="achievement-icon">📊</div>
+                                    <p class="achievement-text">Implemented real-time data processing for flight telemetry and analytics</p>
+                                </li>
+                                <li class="achievement-item">
+                                    <div class="achievement-icon">🔄</div>
+                                    <p class="achievement-text">Participated in agile development processes and code review sessions</p>
+                                </li>
+                            </ul>
+                        </div>
 
-    <div class="box-container">
-
-        <div class="box">
-            <img class='logos'src="./images/mongodb.png" alt="">
-            <h3>MONGODB</h3>
+                        <div class="tech-section">
+                            <h4 class="tech-title">Technologies Used</h4>
+                            <div class="tech-stack-new">
+                                <span class="tech-item-new">TypeScript</span>
+                                <span class="tech-item-new">Express.js</span>
+                                <span class="tech-item-new">React.js</span>
+                                <span class="tech-item-new">Node.js</span>
+                                <span class="tech-item-new">MongoDB</span>
+                                <span class="tech-item-new">Full Stack</span>
+                                <span class="tech-item-new">Git</span>
+                            </div>
+                        </div>
+                    </div>
         </div>
 
-        <div class="box">
-            <img class='logos'src="./images/express.png" alt="">
-            <h3>Express js</h3>
+                <!-- Experience Card 3 -->
+                <div class="experience-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-header-new">
+                        <h3 class="job-title">Software Engineer Intern</h3>
+                        <p class="company-name">General Aeronautics</p>
+                        <span class="job-duration">2022 - 2023</span>
+                    </div>
+                    <div class="card-content-new">
+                        <p class="job-description-new">Started my professional journey as a Software Engineer Intern at General Aeronautics, where I gained foundational experience in full-stack development and software engineering. This internship provided hands-on experience with cutting-edge web technologies and modern systems.</p>
+                        
+                        <div class="achievements-section">
+                            <h4 class="achievements-title">Key Achievements</h4>
+                            <ul class="achievements-list">
+                                <li class="achievement-item">
+                                    <div class="achievement-icon">🎓</div>
+                                    <p class="achievement-text">Learned full-stack development fundamentals and industry best practices</p>
+                                </li>
+                                <li class="achievement-item">
+                                    <div class="achievement-icon">📡</div>
+                                    <p class="achievement-text">Worked on real-time data processing systems for flight telemetry</p>
+                                </li>
+                                <li class="achievement-item">
+                                    <div class="achievement-icon">💬</div>
+                                    <p class="achievement-text">Participated in team meetings and contributed to technical discussions</p>
+                                </li>
+                                <li class="achievement-item">
+                                    <div class="achievement-icon">🛠️</div>
+                                    <p class="achievement-text">Gained experience with modern development tools and version control systems</p>
+                                </li>
+                            </ul>
         </div>
 
-        <div class="box">
-            <img class='logos'src="./images/reactlogo.png" alt="">
-            <h3>React</h3>
+                        <div class="tech-section">
+                            <h4 class="tech-title">Technologies Used</h4>
+                            <div class="tech-stack-new">
+                                <span class="tech-item-new">TypeScript</span>
+                                <span class="tech-item-new">Express.js</span>
+                                <span class="tech-item-new">React.js</span>
+                                <span class="tech-item-new">Node.js</span>
+                                <span class="tech-item-new">MongoDB</span>
+                                <span class="tech-item-new">Full Stack</span>
+                                <span class="tech-item-new">Git</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Technical <span class="title-accent">Skills</span></h2>
+                <p class="section-subtitle">Technologies I work with</p>
         </div>
 
-        <div class="box">
-            <img class='nodelogos'src="./images/nodejs.png" alt="">
-            <h3>node js</h3>
+            <div class="skills-grid">
+                <!-- Programming Skills -->
+                <div class="skill-category" data-aos="fade-up">
+                    <h3 class="category-title">Programming & Problem Solving</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">TypeScript</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Express.js</span>
+                                <span class="skill-percentage">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">MySQL Database</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Problem Solving</span>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
         </div>
 
-        <div class="box">
-            <img class='logos'src="./images/javacript.png" alt="">
-            <h3>javascript</h3>
+                <!-- Web Development Skills -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="category-title">Web Development</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">React.js</span>
+                                <span class="skill-percentage">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Node.js</span>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Express.js</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">MongoDB</span>
+                                <span class="skill-percentage">82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
 
-        <div class="box">
-            <img class='logos'src="./images/html5-css3.png" alt="">
-            <h3>HTML5-CSS3</h3>
+            <!-- Tech Stack -->
+            <div class="tech-stack" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="stack-title">Tech Stack</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <img src="images/reactlogo.png" alt="React">
+                        <span>React</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/nodejs.png" alt="Node.js">
+                        <span>Node.js</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/express.png" alt="Express.js">
+                        <span>Express.js</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/mongodb.png" alt="MongoDB">
+                        <span>MongoDB</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/javascript.png" alt="JavaScript">
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="tech-item">
+                        <img src="images/html5-css3.png" alt="HTML5/CSS3">
+                        <span>HTML5/CSS3</span>
+                    </div>
+                </div>
+    </div>
+
+            <!-- Coding Profiles -->
+            <div class="coding-profiles" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="profiles-title">Coding Profiles</h3>
+                <div class="profiles-grid">
+                    <a href="https://www.hackerrank.com/rohitkumar912251" class="profile-card" target="_blank">
+                        <img src="images/c++.png" alt="HackerRank">
+                        <div class="profile-info">
+                            <h4>HackerRank</h4>
+                            <p>5⭐ C++ & Problem Solving</p>
+                        </div>
+                    </a>
+                    <a href="https://www.codechef.com/users/rohit_9122" class="profile-card" target="_blank">
+                        <img src="images/codechef.jpg" alt="CodeChef">
+                        <div class="profile-info">
+                            <h4>CodeChef</h4>
+                            <p>30+ Problems Solved</p>
+                        </div>
+                    </a>
+                    <a href="https://leetcode.com/rohitkumar933/" class="profile-card" target="_blank">
+                        <img src="images/leetcode.png" alt="LeetCode">
+                        <div class="profile-info">
+                            <h4>LeetCode</h4>
+                            <p>50+ Problems Solved</p>
+                        </div>
+                    </a>
+                    <a href="https://github.com/Rohitkr321" class="profile-card" target="_blank">
+                        <img src="images/github.png" alt="GitHub">
+                        <div class="profile-info">
+                            <h4>GitHub</h4>
+                            <p>15+ Projects</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Featured <span class="title-accent">Projects</span></h2>
+                <p class="section-subtitle">Some of my recent work</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card featured" data-aos="fade-up">
+                    <div class="project-badge">Featured</div>
+                    <div class="project-image">
+                        <img src="images/todoimage.jpg" alt="Todo App - Full-stack Application with Authentication">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/Rohitkr321/TodoWithAuthteticationAnd-Multer" target="_blank" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/Rohitkr321/TodoWithAuthteticationAnd-Multer" target="_blank" class="project-link" title="View Source Code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Todo</h3>
+                        <p class="project-description">
+                            A comprehensive full-stack todo application with advanced authentication, file upload capabilities using Multer, 
+                            and real-time updates. Features secure user registration, JWT authentication, CRUD operations, 
+                            image upload with validation, and responsive design with modern UI/UX.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Multer</span>
+                        </div>
+            </div>
+        </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="images/discussion.jpg" alt="Discussion Portal">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/Rohitkr321/Amazing-DiscussionPortal-In-JavaScript" target="_blank" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/Rohitkr321/Amazing-DiscussionPortal-In-JavaScript" target="_blank" class="project-link" title="View Source Code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Discussion Portal</h3>
+                        <p class="project-description">
+                            An interactive discussion portal built with TypeScript and JavaScript, featuring real-time messaging, 
+                            user profiles, and community-driven discussions with modern UI/UX design.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">Local Storage</span>
+                        </div>
+            </div>
+        </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="images/ecommerce.jpg" alt="E-Commerce Web Application">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/Rohitkr321/E-Commerce-WebApp" target="_blank" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/Rohitkr321/E-Commerce-WebApp" target="_blank" class="project-link" title="View Source Code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-Commerce app</h3>
+                        <p class="project-description">
+                            A full-featured e-commerce web application with secure user authentication, comprehensive product catalog, 
+                            advanced shopping cart functionality, integrated payment gateway (Stripe/PayPal), order tracking system, 
+                            admin dashboard, and real-time inventory management with modern responsive design.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">MERN Stack</span>
+                            <span class="tech-tag">Payment Gateway</span>
+                            <span class="tech-tag">Authentication</span>
+                            <span class="tech-tag">Shopping Cart</span>
+                        </div>
+            </div>
+        </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-image">
+                        <img src="images/teammessagingapp.jpg" alt="Team Messaging Web App">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/Rohitkr321/TeamMessagingWebApp" target="_blank" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/Rohitkr321/TeamMessagingWebApp" target="_blank" class="project-link" title="View Source Code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Team Messaging App</h3>
+                        <p class="project-description">
+                            A sophisticated real-time team communication platform with instant messaging, group chats, 
+                            file sharing capabilities, video calling integration, user presence indicators, message encryption, 
+                            and comprehensive admin dashboard for team management and analytics.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Socket.io</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+            </div>
+        </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-image">
+                        <img src="images/download.png" alt="Awesome React Projects Collection">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://github.com/Rohitkr321/Awesome-And-Amazing-React-Projects" target="_blank" class="project-link" title="Live Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/Rohitkr321/Awesome-And-Amazing-React-Projects" target="_blank" class="project-link" title="View Source Code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">React Project Collection</h3>
+                        <p class="project-description">
+                            An amazing collection of React projects demonstrating modern concepts, hooks, state management, 
+                            and various UI/UX patterns with clean, reusable code.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Hooks</span>
+                            <span class="tech-tag">Context API</span>
+                            <span class="tech-tag">Styled Components</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Certifications & <span class="title-accent">Achievements</span></h2>
+                <p class="section-subtitle">Professional certifications and learning achievements</p>
+    </div>
+
+            <div class="certificates-grid">
+                <div class="certificate-card" data-aos="fade-up">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fab fa-salesforce"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Salesforce 2x Superbadge</h3>
+                            <p class="certificate-issuer">Salesforce Trailhead</p>
+                            <p class="certificate-date">2023</p>
+                        </div>
+                    </div>
+                    <div class="certificate-description">
+                        <p>Achieved two Superbadges on Salesforce Trailhead, demonstrating advanced skills and expertise in Salesforce platform development and administration.</p>
+                    </div>
+                    <div class="certificate-skills">
+                        <span class="skill-tag">Salesforce</span>
+                        <span class="skill-tag">CRM</span>
+                        <span class="skill-tag">Apex</span>
+                        <span class="skill-tag">Lightning</span>
+                    </div>
+                </div>
+                
+                <div class="certificate-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fab fa-salesforce"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Trailhead Double Star Ranger</h3>
+                            <p class="certificate-issuer">Salesforce Trailhead</p>
+                            <p class="certificate-date">2023</p>
+                        </div>
+                    </div>
+                    <div class="certificate-description">
+                        <p>Earned the Double Star Ranger rank on Salesforce Trailhead, reflecting commitment to continuous learning and expertise in Salesforce ecosystem.</p>
+                    </div>
+                    <div class="certificate-skills">
+                        <span class="skill-tag">Salesforce</span>
+                        <span class="skill-tag">Trailhead</span>
+                        <span class="skill-tag">Cloud Computing</span>
+                        <span class="skill-tag">Continuous Learning</span>
+                    </div>
+                </div>
+
+                <div class="certificate-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Student Developer</h3>
+                            <p class="certificate-issuer">Crio Launch Plus 2020</p>
+                            <p class="certificate-date">2020</p>
+                        </div>
+                    </div>
+                    <div class="certificate-description">
+                        <p>Participated in Crio Launch Plus 2020 as a Student Developer, showcasing skills through various hands-on projects and real-world development challenges.</p>
+                    </div>
+                    <div class="certificate-skills">
+                        <span class="skill-tag">Software Development</span>
+                        <span class="skill-tag">Project-based Learning</span>
+                        <span class="skill-tag">Full Stack</span>
+                        <span class="skill-tag">Problem Solving</span>
+            </div>
+        </div>
+
+                <div class="certificate-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Problem Solving (Advanced)</h3>
+                            <p class="certificate-issuer">HackerRank</p>
+                            <p class="certificate-date">2023</p>
+                        </div>
+                    </div>
+                    <div class="certificate-description">
+                        <p>Advanced problem-solving certification with 5-star rating in C++ and data structures.</p>
+                    </div>
+                    <div class="certificate-skills">
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Data Structures</span>
+                        <span class="skill-tag">Algorithms</span>
+                        <span class="skill-tag">Problem Solving</span>
+            </div>
+        </div>
+
+                <div class="certificate-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fab fa-aws"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Cloud Computing Fundamentals</h3>
+                            <p class="certificate-issuer">AWS Training</p>
+                            <p class="certificate-date">2024</p>
+                        </div>
+                    </div>
+                    <div class="certificate-description">
+                        <p>Cloud computing fundamentals and AWS services for scalable web applications.</p>
+                    </div>
+                    <div class="certificate-skills">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Cloud Computing</span>
+                        <span class="skill-tag">EC2</span>
+                        <span class="skill-tag">S3</span>
+            </div>
+        </div>
+
+                <div class="certificate-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Git & Version Control</h3>
+                            <p class="certificate-issuer">GitHub Learning Lab</p>
+                            <p class="certificate-date">2023</p>
+                        </div>
+                    </div>
+                    <div class="certificate-description">
+                        <p>Version control and collaborative development using Git and GitHub.</p>
+                    </div>
+                    <div class="certificate-skills">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Version Control</span>
+                        <span class="skill-tag">Collaboration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What People Say</h2>
+                <p class="section-subtitle">
+                    Testimonials from clients and colleagues
+                </p>
+            </div>
+            
+            <div class="testimonials-slider" id="testimonials-slider">
+                <div class="testimonial-slide active">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "Rohit is an exceptional full-stack developer with deep expertise in MERN stack technologies. 
+                                His ability to deliver high-quality solutions on time and his collaborative approach make him 
+                                a valuable team member. Highly recommended!"
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <!-- <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face" alt="John Smith"> -->
+                            </div>
+                            <div class="author-info">
+                                <h4 class="author-name">Ananya Prabhakar</h4>
+                                <p class="author-role">Senior Project Manager</p>
+                                <p class="author-company">General Aeronautics</p>
+                            </div>
+                        </div>
+            </div>
+        </div>
+
+                <div class="testimonial-slide">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="testimonial-text">
+                                "Working with Rohit has been a pleasure. His technical skills are outstanding, and he 
+                                always goes the extra mile to ensure project success. His expertise in React and Node.js 
+                                has been instrumental in our product development."
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <!-- <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=80&h=80&fit=crop&crop=face" alt="Sarah Johnson"> -->
+                            </div>
+                            <div class="author-info">
+                                <h4 class="author-name">Harish Jathody</h4>
+                                <p class="author-role">Backend Lead</p>
+                                <p class="author-company">General Aeronautics</p>
+                            </div>
+                        </div>
+                    </div>
         </div>
 
     </div>
 
+            <div class="testimonial-controls">
+                <button class="testimonial-btn prev-btn" id="prev-testimonial">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="testimonial-dots" id="testimonial-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+
+                </div>
+                <button class="testimonial-btn next-btn" id="next-testimonial">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
 </section>
 
-<!-- service section ends -->
 
-<!-- experience section starts  -->
-
-<!-- <section class="experience" id="experience">
-
-    <h1 class="heading"> <span> my </span> experience </h1>
-
-    <div class="box-container">
-
-        <div class="box">
-            <div class="content">
-                <span> 2015 - 2016 </span>
-                <h3>front-end development</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae vel quasi consectetur expedita ipsam similique maiores ipsa? Error, debitis ullam.</p>
-            </div>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Get In <span class="title-accent">Touch</span></h2>
+                <p class="section-subtitle">Let's work together</p>
         </div>
 
-        <div class="box">
-            <div class="content">
-                <span> 2016 - 2017 </span>
-                <h3>front-end development</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae vel quasi consectetur expedita ipsam similique maiores ipsa? Error, debitis ullam.</p>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="content">
-                <span> 2017 - 2018 </span>
-                <h3>front-end development</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae vel quasi consectetur expedita ipsam similique maiores ipsa? Error, debitis ullam.</p>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="content">
-                <span> 2018 - 2019 </span>
-                <h3>front-end development</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae vel quasi consectetur expedita ipsam similique maiores ipsa? Error, debitis ullam.</p>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="content">
-                <span> 2019 - 2020 </span>
-                <h3>front-end development</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae vel quasi consectetur expedita ipsam similique maiores ipsa? Error, debitis ullam.</p>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="content">
-                <span> 2020 - 2021 </span>
-                <h3>front-end development</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae vel quasi consectetur expedita ipsam similique maiores ipsa? Error, debitis ullam.</p>
-            </div>
-        </div>
-
-    </div>
-
-</section> -->
-
-<!-- experience section ends -->
-
-<!-- portfolio section starts  -->
-
-<section class="portfolio" id="portfolio">
-
-    <h1 class="heading"> <span> my </span> portfolio </h1>
-
-    <div class="box-container">
-
-        <div class="box">
-            <img src="images/todoimage.jpg" alt="Loading....">
-            <h3> Todo App </h3>
-            <div class="icons">
-                <a href="https://todowithdatabase-3p34g8m39cl1mdlfny.codequotient.in" class="fas fa-link"></a>
-                <a href="https://github.com/Rohitkr321/TodoWithAuthteticationAnd-Multer" >Git</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <img src="images/discussion.jpg"alt="Loading....">
-            <h3> discussion portal</h3>
-            <div class="icons">
-                <a href="https://discussionportal-3p34g81bvhl0ai2thf.web.codequotient.com" class="fas fa-link"></a>
-                <a href="https://github.com/Rohitkr321/Amazing-DiscussionPortal-In-JavaScript" >Git</a>
-                <!-- <a href="#" class="fas fa-search"></a> -->
-            </div>
-        </div>
-
-        <div class="box">
-            <img src="images/ecommerce.jpg" alt="">
-            <h3> E-Commerce app</h3>
-            <div class="icons">
-                <a href="https://e-commerce_4thday-3p34g8u7zel25n1wpp.codequotient.in/" class="fas fa-link"></a>
-                <a href="https://github.com/Rohitkr321/E-Commerce-WebApp" >Git</a> 
-            </div>
-        </div>
-
-        <div class="box">
-            <img src="images/teammessagingapp.jpg" alt="">
-            <h3> team messaging app </h3>
-            <div class="icons">
-                <a href="https://github.com/Rohitkr321/TeamMessagingWebApp">Git</a>
-                <!-- <a href="#" class="fas fa-share"></a>
-                <a href="#" class="fas fa-search"></a> -->
-            </div>
-        </div>
-
-        <div class="box">
-            <img class='react'src="images/download.png" alt="">
-            <h3> React project </h3>
-            <div class="icons">
-                <a href="https://github.com/Rohitkr321/Awesome-And-Amazing-React-Projects">Git</a>
-                <!-- <a href="#" class="fas fa-share"></a>
-                <a href="#" class="fas fa-search"></a> -->
-            </div>
-        </div>
-
-        <div class="box">
-            <img src="images/img-6.jpg" alt="">
-            <h3>Coming Soon</h3>
-            <!-- <div class="icons">
-                <a href="#" class="fas fa-link"></a>
-                <a href="#" class="fas fa-share"></a>
-                <a href="#" class="fas fa-search"></a>
-            </div> -->
-        </div>
-
-    </div>
-
-</section>
-
-<!-- portfolio section ends -->
-
-<!-- contact section starts  -->
-
-<section class="contact" id="contact">
-
-    <h1 class="heading"> contact <span> me </span> </h1>
-
-    <div class="icons-container">
-
-        <div class="icons">
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <h3>Let's Connect</h3>
+                    <p>
+                        I'm always interested in new opportunities and exciting projects. 
+                        Whether you have a question, want to collaborate, or just want to say hi, 
+                        feel free to reach out!
+                    </p>
+                    
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-icon">
             <i class="fas fa-envelope"></i>
-            <h3>my email</h3>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
             <p>rohitkumar9122565209@gmail.com</p>
+                            </div>
         </div>
 
-        <div class="icons">
+                        <div class="contact-item">
+                            <div class="contact-icon">
             <i class="fas fa-phone"></i>
-            <h3>my number</h3>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
             <p>+91 9334156392</p>
             <p>+91 7352966906</p>
         </div>
-
-        <div class="icons">
-            <i class="fas fa-map-marker-alt"></i>
-            <h3>my address</h3>
-            <p>chhoti patn devi, patna city, Bihar-800008</p>
         </div>
 
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Location</h4>
+                                <p>Chhoti Patan Devi, Patna City</p>
+                                <p>Bihar - 800008, India</p>
+                            </div>
+                        </div>
     </div>
 
-    <div class="row">
-
-        <!-- <form action="">
-
-            <input type="text" placeholder="name" class="box">
-            <input type="email" placeholder="email" class="box">
-            <input type="number" placeholder="number" class="box">
-
-            <textarea name="" placeholder="message" id="" cols="30" rows="10"></textarea>
-
-            <input type="submit" class="btn" value="send message">
-
-        </form> -->
-
-        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3598.3460921663514!2d85.2285852144925!3d25.593413421793173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5f789d13bd83%3A0x241a7623b91cbfa!2sChhoti%20Patan%20Devi%20Temple!5e0!3m2!1sen!2sin!4v1655012505686!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+                    <div class="social-links">
+                        <a href="https://github.com/Rohitkr321" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/rohit-kumar-a5774319a/" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com/Rohitkumar9331" target="_blank" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.facebook.com/rohitkumar062" target="_blank" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
     </div>
 
+                <div class="contact-form-container" data-aos="fade-left">
+                    <div class="contact-form-wrapper">
+                        <h3>Send me a Message</h3>
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" class="form-input" required>
+                                <div class="field-error" id="name-error"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                                <div class="field-error" id="email-error"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <input type="text" id="subject" name="subject" class="form-input" required>
+                                <div class="field-error" id="subject-error"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
+                                <div class="field-error" id="message-error"></div>
+    </div>
 
+                            <button type="submit" class="btn btn-primary form-submit">
+                                <span class="btn-text">Send Message</span>
+                                <div class="btn-wave"></div>
+                                <i class="fas fa-paper-plane btn-icon"></i>
+                            </button>
+                        </form>
+                        
+                        <div class="form-success" id="form-success" style="display: none;">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Message Sent Successfully!</h4>
+                            <p>Thank you for reaching out. I'll get back to you soon!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </section>
 
-<!-- contact section ends -->
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Rohit Kumar. All rights reserved.</p>
+                <p>Designed & Developed with ❤️ by Rohit Kumar</p>
+            </div>
+        </div>
+    </footer>
 
-<!-- footer section  -->
-<footer class="footer"> created by <span> mr. rohit kumar </span> | all rights reserved! </footer>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
+    <!-- Quick Actions Floating Menu -->
+    <div class="quick-actions" id="quick-actions">
+        <button class="quick-action-btn" id="quick-menu-toggle" title="Quick Actions">
+            <i class="fas fa-plus"></i>
+        </button>
+        
+        <div class="quick-actions-menu">
+            <a href="./resume/Rohit-Resume-Profile (1).pdf" download class="quick-action-item" title="Download CV">
+                <i class="fas fa-download"></i>
+                <span>Download CV</span>
+            </a>
+            
+            <a href="mailto:rohitkumar9122565209@gmail.com" class="quick-action-item" title="Send Email">
+                <i class="fas fa-envelope"></i>
+                <span>Send Email</span>
+            </a>
+            
+            <a href="https://github.com/Rohitkr321" target="_blank" class="quick-action-item" title="View GitHub">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+            
+            <a href="https://www.linkedin.com/in/rohit-kumar-sde/" target="_blank" class="quick-action-item" title="LinkedIn Profile">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+            
+            <a href="#contact" class="quick-action-item" title="Contact Form">
+                <i class="fas fa-comments"></i>
+                <span>Contact</span>
+            </a>
+        </div>
+    </div>
 
+    <!-- Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbot-widget">
+        <div class="chatbot-toggle" id="chatbot-toggle">
+            <i class="fas fa-robot"></i>
+            <span class="chatbot-notification" id="chatbot-notification">1</span>
+        </div>
+        
+        <div class="chatbot-container" id="chatbot-container">
+            <div class="chatbot-header">
+                <div class="chatbot-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="chatbot-info">
+                    <h4>Rohit's Assistant</h4>
+                    <p>Ask me anything!</p>
+                </div>
+                <button class="chatbot-close" id="chatbot-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="chatbot-message bot-message">
+                    <div class="message-content">
+                        <p>👋 Hi! I'm here to help you learn more about Rohit's work and services. What would you like to know?</p>
+                    </div>
+                    <div class="message-time">Just now</div>
+                </div>
+            </div>
+            
+            <div class="chatbot-suggestions" id="chatbot-suggestions">
+                <button class="suggestion-btn" data-question="What is your experience?">Experience</button>
+                <button class="suggestion-btn" data-question="What technologies do you use?">Technologies</button>
+                <button class="suggestion-btn" data-question="How can I contact you?">Contact</button>
+                <button class="suggestion-btn" data-question="What projects have you worked on?">Projects</button>
+            </div>
+            
+            <div class="chatbot-input-container">
+                <input type="text" id="chatbot-input" placeholder="Type your question..." maxlength="200">
+                <button id="chatbot-send" class="chatbot-send-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- custom js file link  -->
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="js/script.js"></script>
-
 </body>
 </html>
