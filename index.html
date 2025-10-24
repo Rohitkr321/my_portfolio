@@ -27,10 +27,19 @@
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
+    <!-- Chart.js for Skills Comparison -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/new-features.css">
 </head>
 <body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="scroll-progress"></div>
+    </div>
+    
     <!-- Loading Screen -->
     <div id="loading-screen" class="loading-screen">
         <div class="loading-container">
@@ -130,7 +139,10 @@
             <div class="hero-content" data-aos="fade-right">
                 <div class="hero-greeting">
                     <span class="greeting-text">
-                        <span class="greeting-animation" data-translate="greeting">Hello, I'm</span>
+                        <span class="greeting-animation" data-translate="greeting" id="dynamic-greeting">
+                            <i class="greeting-icon fas fa-sun"></i>
+                            Good Morning, I'm
+                        </span>
                     </span>
             </div>
                 <h1 class="hero-name">
@@ -148,9 +160,11 @@
                     <span class="title-company">@ General Aeronautics</span>
             </div>
                 <p class="hero-description">
-                    Experienced Software Engineer with 3+ years of expertise in full-stack 
-                    development. Currently working as Software Engineer L3 at General Aeronautics, where I develop 
-                    cutting-edge solutions for full-stack development.
+                    Experienced Software Engineer L3 with 2+ years of professional expertise in backend and full-stack 
+                    development. Specializing in <strong>Node.js (Hapi.js & Express)</strong>, <strong>SQL</strong>, 
+                    <strong>Microservice Architecture</strong>, and scalable RESTful APIs. Contributed to multiple live 
+                    drone applications at General Aeronautics with proven track record of <strong>40% efficiency gains</strong> 
+                    and <strong>35% performance optimization</strong>.
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary">
@@ -167,7 +181,7 @@
                         <i class="fab fa-github"></i>
                         <div class="social-ripple"></div>
                     </a>
-                    <a href="https://www.linkedin.com/in/rohit-kumar-a5774319a/" class="social-link" target="_blank" data-tooltip="LinkedIn">
+                    <a href="https://www.linkedin.com/in/rohit-kumar-sde/" class="social-link" target="_blank" data-tooltip="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                         <div class="social-ripple"></div>
                     </a>
@@ -185,11 +199,15 @@
                 <div class="achievement-badges">
                     <div class="badge">
                         <i class="fas fa-code"></i>
-                        <span>3+ Years Experience</span>
+                        <span>2+ Years Professional</span>
                     </div>
                     <div class="badge">
                         <i class="fas fa-rocket"></i>
-                        <span>25+ Projects</span>
+                        <span>40% Efficiency Gain</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>35% Performance ↑</span>
                     </div>
                     <div class="badge">
                         <i class="fas fa-trophy"></i>
@@ -213,23 +231,26 @@
                     </div>
                     <div class="image-bg"></div>
                     <div class="floating-elements">
-                        <div class="floating-icon react-icon" data-tooltip="React.js">
-                            <i class="fab fa-react"></i>
-                        </div>
                         <div class="floating-icon node-icon" data-tooltip="Node.js">
                             <i class="fab fa-node-js"></i>
                         </div>
-                        <div class="floating-icon js-icon" data-tooltip="JavaScript">
+                        <div class="floating-icon react-icon" data-tooltip="React.js">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <div class="floating-icon cpp-icon" data-tooltip="C++ & DSA">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="floating-icon js-icon" data-tooltip="TypeScript">
                             <i class="fab fa-js-square"></i>
                         </div>
-                        <div class="floating-icon git-icon" data-tooltip="Git">
-                            <i class="fab fa-git-alt"></i>
-                        </div>
-                        <div class="floating-icon mongo-icon" data-tooltip="MongoDB">
+                        <div class="floating-icon mongo-icon" data-tooltip="SQL Database">
                             <i class="fas fa-database"></i>
                         </div>
                         <div class="floating-icon aws-icon" data-tooltip="AWS">
                             <i class="fab fa-aws"></i>
+                        </div>
+                        <div class="floating-icon docker-icon" data-tooltip="Docker">
+                            <i class="fab fa-docker"></i>
                         </div>
         </div>
         </div>
@@ -260,30 +281,33 @@
                 <div class="about-text" data-aos="fade-right">
                     <h3>Software Engineer L3 & Backend Specialist</h3>
                     <p>
-                        I am a passionate Software Engineer with 3+ years of experience in 
-                        full-stack development. Currently working as Software Engineer L3 at General Aeronautics, 
-                        where I develop cutting-edge solutions for drone operations and full-stack development.
-                        that power next-generation unmanned systems.
+                        I am a passionate <strong>Software Engineer (L3)</strong> with <strong>2+ years of professional 
+                        experience</strong> in backend and full-stack development at <strong>General Aeronautics</strong>. 
+                        Skilled in <strong>Node.js (Hapi.js & Express)</strong>, <strong>SQL</strong>, <strong>Sequelize ORM</strong>, 
+                        and <strong>Microservice Architecture</strong>, I design and build RESTful APIs, authentication systems, 
+                        and database models for enterprise-grade applications.
                     </p>
                     <p>
-                        My journey at General Aeronautics spans from Software Engineer Intern (2022-2023) to L1 Engineer 
-                        (2022-2024), and now L3 Engineer (Apr 2025 - Present). I'm driven by the challenge of solving 
-                        complex technical problems and building scalable systems that enable modern web applications 
-                        and advanced data analytics.
+                        I've contributed to multiple <strong>live production systems</strong> including <strong>GA Pilot App</strong>, 
+                        <strong>GA Farmer App</strong>, <strong>GA Field Officer App</strong>, and <strong>Nucleus Server</strong> 
+                        (our core backend platform). My work has automated drone operation data pipelines, reducing manual efforts 
+                        by <strong>40%</strong>, and optimized SQL queries to cut API response time by <strong>35%</strong>. 
+                        With strong exposure to <strong>AWS</strong>, <strong>Keycloak</strong>, and <strong>Docker</strong>, 
+                        I build secure, scalable deployments while continuously exploring new technologies and design patterns.
                     </p>
                     
                     <div class="about-stats">
                         <div class="stat-item">
-                            <div class="stat-number">3+</div>
-                            <div class="stat-label">Years Experience</div>
+                            <div class="stat-number">2+</div>
+                            <div class="stat-label">Years Professional Experience</div>
         </div>
                         <div class="stat-item">
-                            <div class="stat-number">25+</div>
-                            <div class="stat-label">Projects Completed</div>
+                            <div class="stat-number">40%</div>
+                            <div class="stat-label">Efficiency Improvement</div>
         </div>
                         <div class="stat-item">
-                            <div class="stat-number">100+</div>
-                            <div class="stat-label">Problems Solved</div>
+                            <div class="stat-number">35%</div>
+                            <div class="stat-label">Performance Optimization</div>
         </div>
         </div>
     </div>
@@ -331,16 +355,16 @@
                 <p class="section-subtitle">My professional journey in full-stack development</p>
                 <div class="experience-stats">
                     <div class="stat-item">
-                        <span class="stat-number">3+</span>
-                        <span class="stat-label">Years Experience</span>
+                        <span class="stat-number">2+</span>
+                        <span class="stat-label">Years Professional</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">3</span>
-                        <span class="stat-label">Career Levels</span>
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Live Apps</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">1</span>
-                        <span class="stat-label">Company</span>
+                        <span class="stat-number">L3</span>
+                        <span class="stat-label">Current Level</span>
                     </div>
                 </div>
             </div>
@@ -356,26 +380,30 @@
                         <span class="job-duration">Apr 2025 - Present</span>
                     </div>
                     <div class="card-content-new">
-                        <p class="job-description-new">Currently working as Software Engineer L3 at General Aeronautics, a cutting-edge technology company. Leading the development of advanced full-stack applications and web solutions that power next-generation systems.</p>
+                        <p class="job-description-new">Leading backend and full-stack development at General Aeronautics. Designing RESTful APIs, authentication systems, and database models using Node.js (Hapi.js & Express), SQL, and Sequelize ORM. Contributing to GA Pilot App, GA Farmer App, GA Field Officer App, and Nucleus Server (core backend platform).</p>
                         
                         <div class="achievements-section">
                             <h4 class="achievements-title">Key Achievements</h4>
                             <ul class="achievements-list">
                                 <li class="achievement-item">
                                     <div class="achievement-icon">🚀</div>
-                                    <p class="achievement-text">Leading development of mission-critical web applications and systems</p>
+                                    <p class="achievement-text">Implemented microservice architecture across multiple GA platforms, improving scalability & maintainability</p>
                                 </li>
                                 <li class="achievement-item">
                                     <div class="achievement-icon">⚡</div>
-                                    <p class="achievement-text">Architecting scalable backend systems for real-time flight data processing</p>
+                                    <p class="achievement-text">Automated drone operation data pipelines — reduced manual efforts by <strong>40%</strong></p>
                                 </li>
                                 <li class="achievement-item">
-                                    <div class="achievement-icon">🤖</div>
-                                    <p class="achievement-text">Implementing advanced algorithms for autonomous drone operations</p>
+                                    <div class="achievement-icon">📈</div>
+                                    <p class="achievement-text">Optimized SQL queries and database models — cut API response time by <strong>35%</strong></p>
+                                </li>
+                                <li class="achievement-item">
+                                    <div class="achievement-icon">🛠️</div>
+                                    <p class="achievement-text">Built internal automation tools and monitoring systems for enhanced developer efficiency</p>
                                 </li>
                                 <li class="achievement-item">
                                     <div class="achievement-icon">👥</div>
-                                    <p class="achievement-text">Mentoring junior developers and conducting code reviews for quality assurance</p>
+                                    <p class="achievement-text">Mentored interns and collaborated across teams for smooth, high-quality product releases</p>
                                 </li>
                             </ul>
                         </div>
@@ -383,14 +411,16 @@
                         <div class="tech-section">
                             <h4 class="tech-title">Technologies Used</h4>
                             <div class="tech-stack-new">
-                                <span class="tech-item-new">TypeScript</span>
-                                <span class="tech-item-new">Express.js</span>
-                                <span class="tech-item-new">React.js</span>
                                 <span class="tech-item-new">Node.js</span>
-                                <span class="tech-item-new">MongoDB</span>
-                                <span class="tech-item-new">Docker</span>
+                                <span class="tech-item-new">Hapi.js</span>
+                                <span class="tech-item-new">Express.js</span>
+                                <span class="tech-item-new">TypeScript</span>
+                                <span class="tech-item-new">SQL (MySQL & PostgreSQL)</span>
+                                <span class="tech-item-new">Sequelize ORM</span>
                                 <span class="tech-item-new">AWS</span>
-                                <span class="tech-item-new">Full Stack</span>
+                                <span class="tech-item-new">Docker</span>
+                                <span class="tech-item-new">Keycloak</span>
+                                <span class="tech-item-new">Microservices</span>
                             </div>
                         </div>
                     </div>
@@ -508,7 +538,7 @@
                     <div class="skill-items">
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span class="skill-name">TypeScript</span>
+                                <span class="skill-name">C++ & DSA</span>
                                 <span class="skill-percentage">95%</span>
                             </div>
                             <div class="skill-bar">
@@ -517,59 +547,16 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span class="skill-name">Express.js</span>
-                                <span class="skill-percentage">92%</span>
+                                <span class="skill-name">JavaScript/TypeScript</span>
+                                <span class="skill-percentage">93%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 92%"></div>
+                                <div class="skill-progress" style="width: 93%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span class="skill-name">MySQL Database</span>
-                                <span class="skill-percentage">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Problem Solving</span>
-                                <span class="skill-percentage">88%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 88%"></div>
-                            </div>
-                        </div>
-                    </div>
-        </div>
-
-                <!-- Web Development Skills -->
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="category-title">Web Development</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">React.js</span>
-                                <span class="skill-percentage">92%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 92%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Node.js</span>
-                                <span class="skill-percentage">88%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 88%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Express.js</span>
+                                <span class="skill-name">Python</span>
                                 <span class="skill-percentage">85%</span>
                             </div>
                             <div class="skill-bar">
@@ -578,11 +565,54 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span class="skill-name">MongoDB</span>
-                                <span class="skill-percentage">82%</span>
+                                <span class="skill-name">Problem Solving & Algorithms</span>
+                                <span class="skill-percentage">92%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 82%"></div>
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+
+                <!-- Backend Development Skills -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="category-title">Backend & Full Stack Development</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Node.js (Hapi.js & Express)</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">SQL (MySQL & PostgreSQL)</span>
+                                <span class="skill-percentage">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Sequelize ORM</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">React.js & Frontend</span>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%"></div>
                             </div>
                         </div>
                     </div>
@@ -594,28 +624,76 @@
                 <h3 class="stack-title">Tech Stack</h3>
                 <div class="tech-grid">
                     <div class="tech-item">
-                        <img src="images/reactlogo.png" alt="React">
-                        <span>React</span>
-                    </div>
-                    <div class="tech-item">
-                        <img src="images/nodejs.png" alt="Node.js">
+                        <i class="fab fa-node-js" style="font-size: 3rem; color: #68a063;"></i>
                         <span>Node.js</span>
                     </div>
                     <div class="tech-item">
-                        <img src="images/express.png" alt="Express.js">
+                        <i class="fas fa-server" style="font-size: 3rem; color: #667eea;"></i>
+                        <span>Hapi.js</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-network-wired" style="font-size: 3rem; color: #000000;"></i>
                         <span>Express.js</span>
                     </div>
                     <div class="tech-item">
-                        <img src="images/mongodb.png" alt="MongoDB">
-                        <span>MongoDB</span>
+                        <i class="fab fa-react" style="font-size: 3rem; color: #61dafb;"></i>
+                        <span>React</span>
                     </div>
                     <div class="tech-item">
-                        <img src="images/javacript.png" alt="JavaScript">
+                        <i class="fab fa-js-square" style="font-size: 3rem; color: #f7df1e;"></i>
                         <span>JavaScript</span>
                     </div>
                     <div class="tech-item">
-                        <img src="images/html5-css3.png" alt="HTML5/CSS3">
+                        <i class="fab fa-js" style="font-size: 3rem; color: #3178c6;"></i>
+                        <span>TypeScript</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-database" style="font-size: 3rem; color: #00758f;"></i>
+                        <span>MySQL</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-database" style="font-size: 3rem; color: #336791;"></i>
+                        <span>PostgreSQL</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-leaf" style="font-size: 3rem; color: #4db33d;"></i>
+                        <span>MongoDB</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-layer-group" style="font-size: 3rem; color: #52b0e7;"></i>
+                        <span>Sequelize ORM</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-aws" style="font-size: 3rem; color: #ff9900;"></i>
+                        <span>AWS</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-docker" style="font-size: 3rem; color: #2496ed;"></i>
+                        <span>Docker</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-shield-alt" style="font-size: 3rem; color: #4d4d4d;"></i>
+                        <span>Keycloak</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-wind" style="font-size: 3rem; color: #38bdf8;"></i>
+                        <span>Tailwind CSS</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-html5" style="font-size: 3rem; color: #e34f26;"></i>
                         <span>HTML5/CSS3</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-paper-plane" style="font-size: 3rem; color: #ff6c37;"></i>
+                        <span>Postman</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-git-alt" style="font-size: 3rem; color: #f05032;"></i>
+                        <span>Git</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-linux" style="font-size: 3rem; color: #fcc624;"></i>
+                        <span>Linux</span>
                     </div>
                 </div>
     </div>
@@ -657,6 +735,213 @@
         </div>
     </section>
 
+    <!-- Skills Comparison Chart Section -->
+    <section id="skills-comparison" class="skills-comparison">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Skills <span class="title-accent">Comparison</span></h2>
+                <p class="section-subtitle">Visual comparison of my technical expertise</p>
+            </div>
+            
+            <div class="comparison-container">
+                <div class="comparison-bars" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-comparison-item">
+                        <div class="skill-comp-header">
+                            <i class="fab fa-node-js"></i>
+                            <span>Backend Development</span>
+                        </div>
+                        <div class="skill-comp-bars">
+                            <div class="comp-bar-item">
+                                <span class="comp-label">Current</span>
+                                <div class="comp-bar">
+                                    <div class="comp-fill current" style="width: 95%">95%</div>
+                                </div>
+                            </div>
+                            <div class="comp-bar-item">
+                                <span class="comp-label">Target</span>
+                                <div class="comp-bar">
+                                    <div class="comp-fill target" style="width: 98%">98%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-comparison-item">
+                        <div class="skill-comp-header">
+                            <i class="fab fa-react"></i>
+                            <span>Frontend Development</span>
+                        </div>
+                        <div class="skill-comp-bars">
+                            <div class="comp-bar-item">
+                                <span class="comp-label">Current</span>
+                                <div class="comp-bar">
+                                    <div class="comp-fill current" style="width: 88%">88%</div>
+                                </div>
+                            </div>
+                            <div class="comp-bar-item">
+                                <span class="comp-label">Target</span>
+                                <div class="comp-bar">
+                                    <div class="comp-fill target" style="width: 95%">95%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-comparison-item">
+                        <div class="skill-comp-header">
+                            <i class="fas fa-database"></i>
+                            <span>Database Management</span>
+                        </div>
+                        <div class="skill-comp-bars">
+                            <div class="comp-bar-item">
+                                <span class="comp-label">Current</span>
+                                <div class="comp-bar">
+                                    <div class="comp-fill current" style="width: 92%">92%</div>
+                                </div>
+                            </div>
+                            <div class="comp-bar-item">
+                                <span class="comp-label">Target</span>
+                                <div class="comp-bar">
+                                    <div class="comp-fill target" style="width: 96%">96%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-comparison-item">
+                        <div class="skill-comp-header">
+                            <i class="fab fa-aws"></i>
+                            <span>Cloud & DevOps</span>
+                        </div>
+                        <div class="skill-comp-bars">
+                            <div class="comp-bar-item">
+                                <span class="comp-label">Current</span>
+                                <div class="comp-bar">
+                                    <div class="comp-fill current" style="width: 78%">78%</div>
+                                </div>
+                            </div>
+                            <div class="comp-bar-item">
+                                <span class="comp-label">Target</span>
+                                <div class="comp-bar">
+                                    <div class="comp-fill target" style="width: 90%">90%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-comparison-item">
+                        <div class="skill-comp-header">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>System Architecture</span>
+                        </div>
+                        <div class="skill-comp-bars">
+                            <div class="comp-bar-item">
+                                <span class="comp-label">Current</span>
+                                <div class="comp-bar">
+                                    <div class="comp-fill current" style="width: 85%">85%</div>
+                                </div>
+                            </div>
+                            <div class="comp-bar-item">
+                                <span class="comp-label">Target</span>
+                                <div class="comp-bar">
+                                    <div class="comp-fill target" style="width: 92%">92%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="comparison-chart" data-aos="fade-up" data-aos-delay="200">
+                    <div class="chart-wrapper">
+                        <canvas id="skillsRadarChart"></canvas>
+                    </div>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #667eea;"></div>
+                            <span>Current Level</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: rgba(102, 126, 234, 0.3);"></div>
+                            <span>Target Level</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements & Highlights Section -->
+    <section id="achievements" class="achievements-highlights">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Achievements & <span class="title-accent">Highlights</span></h2>
+                <p class="section-subtitle">Measurable impact and professional milestones</p>
+            </div>
+
+            <div class="achievements-grid">
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="achievement-icon-large">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">Microservice Architecture</h3>
+                        <p class="achievement-desc">Implemented microservice architecture across multiple GA platforms, improving scalability & maintainability</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="achievement-icon-large">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">40% Efficiency Gain</h3>
+                        <p class="achievement-desc">Automated drone operation data pipelines, reducing manual efforts by 40%</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="achievement-icon-large">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">35% Performance Boost</h3>
+                        <p class="achievement-desc">Optimized SQL queries and cut API response time by 35%</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="achievement-icon-large">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">Automation Tools</h3>
+                        <p class="achievement-desc">Built internal tools for automation and monitoring, enhancing developer efficiency</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="achievement-icon-large">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">Team Leadership</h3>
+                        <p class="achievement-desc">Mentored interns and collaborated across teams for smooth, high-quality product releases</p>
+                    </div>
+                </div>
+
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="achievement-icon-large">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3 class="achievement-title">5⭐ C++ Rating</h3>
+                        <p class="achievement-desc">HackerRank 5-star rating in C++ and Problem Solving with strong DSA fundamentals</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
@@ -665,8 +950,32 @@
                 <p class="section-subtitle">Some of my recent work</p>
             </div>
             
+            <!-- Project Filter Buttons -->
+            <div class="project-filters" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i>
+                    <span>All Projects</span>
+                </button>
+                <button class="filter-btn" data-filter="mern">
+                    <i class="fab fa-node-js"></i>
+                    <span>MERN Stack</span>
+                </button>
+                <button class="filter-btn" data-filter="react">
+                    <i class="fab fa-react"></i>
+                    <span>React</span>
+                </button>
+                <button class="filter-btn" data-filter="nodejs">
+                    <i class="fab fa-node"></i>
+                    <span>Node.js</span>
+                </button>
+                <button class="filter-btn" data-filter="fullstack">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Full Stack</span>
+                </button>
+            </div>
+            
             <div class="projects-grid">
-                <div class="project-card featured" data-aos="fade-up">
+                <div class="project-card featured" data-aos="fade-up" data-category="nodejs fullstack">
                     <div class="project-badge">Featured</div>
                     <div class="project-image">
                         <img src="images/todoimage.jpg" alt="Todo App - Full-stack Application with Authentication">
@@ -697,7 +1006,7 @@
             </div>
         </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100" data-category="fullstack">
                     <div class="project-image">
                         <img src="images/discussion.jpg" alt="Discussion Portal">
                         <div class="project-overlay">
@@ -727,7 +1036,7 @@
             </div>
         </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200" data-category="mern fullstack">
                     <div class="project-image">
                         <img src="images/ecommerce.jpg" alt="E-Commerce Web Application">
                         <div class="project-overlay">
@@ -757,7 +1066,7 @@
             </div>
         </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300" data-category="nodejs react fullstack">
                     <div class="project-image">
                         <img src="images/teammessagingapp.jpg" alt="Team Messaging Web App">
                         <div class="project-overlay">
@@ -787,7 +1096,7 @@
             </div>
         </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="400" data-category="react">
                     <div class="project-image">
                         <img src="images/download.png" alt="Awesome React Projects Collection">
                         <div class="project-overlay">
@@ -1042,6 +1351,85 @@
         </div>
 </section>
 
+    <!-- Location Map Section -->
+    <section id="location-map" class="location-map">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Work <span class="title-accent">Locations</span></h2>
+                <p class="section-subtitle">Places where I've worked and contributed</p>
+            </div>
+            
+            <div class="map-container" data-aos="fade-up" data-aos-delay="100">
+                <div class="simple-world-map">
+                    <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:rgba(102,126,234,0.1);stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:rgba(118,75,162,0.1);stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Simplified world map outline -->
+                        <rect width="1000" height="500" fill="url(#mapGradient)" opacity="0.2"/>
+                        <circle cx="700" cy="200" r="100" fill="rgba(102,126,234,0.15)" opacity="0.5"/>
+                        <text x="500" y="250" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-size="24" font-weight="300">🌍 Global Presence</text>
+                    </svg>
+                </div>
+                
+                <div class="location-markers">
+                    <div class="location-marker" data-aos="zoom-in" data-aos-delay="200" style="top: 40%; left: 70%;">
+                        <div class="marker-pin">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="marker-pulse"></div>
+                        </div>
+                        <div class="marker-info">
+                            <h4>Bangalore, India</h4>
+                            <p>General Aeronautics HQ</p>
+                            <span class="marker-duration">2021 - Present</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="locations-list" data-aos="fade-up" data-aos-delay="300">
+                <div class="location-card">
+                    <div class="location-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="location-details">
+                        <h4>General Aeronautics</h4>
+                        <p class="location-address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Bangalore, Karnataka, India
+                        </p>
+                        <div class="location-meta">
+                            <span class="location-type"><i class="fas fa-briefcase"></i> Full-time</span>
+                            <span class="location-period"><i class="fas fa-calendar"></i> 2021 - Present</span>
+                        </div>
+                        <p class="location-desc">Leading full-stack development for drone operations platform with a team of developers.</p>
+                    </div>
+                </div>
+                
+                <div class="location-card">
+                    <div class="location-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="location-details">
+                        <h4>Remote Projects</h4>
+                        <p class="location-address">
+                            <i class="fas fa-globe"></i>
+                            Various Locations Worldwide
+                        </p>
+                        <div class="location-meta">
+                            <span class="location-type"><i class="fas fa-wifi"></i> Remote</span>
+                            <span class="location-period"><i class="fas fa-calendar"></i> 2020 - Present</span>
+                        </div>
+                        <p class="location-desc">Collaborated with international teams on diverse projects across multiple time zones.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
@@ -1166,9 +1554,19 @@
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
+    <!-- Back to Top Button with Progress Ring -->
     <button class="back-to-top" id="back-to-top">
+        <svg class="progress-ring" width="60" height="60">
+            <circle class="progress-ring-circle" stroke="url(#gradient)" stroke-width="3" fill="transparent" r="26" cx="30" cy="30"/>
+            <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+        </svg>
         <i class="fas fa-chevron-up"></i>
+        <span class="progress-percentage" id="scroll-percentage">0%</span>
     </button>
 
     <!-- Quick Actions Floating Menu -->
@@ -1202,6 +1600,329 @@
                 <i class="fas fa-comments"></i>
                 <span>Contact</span>
             </a>
+        </div>
+    </div>
+
+    <!-- Voice Introduction Widget -->
+    <div class="voice-intro-widget" id="voice-intro">
+        <button class="voice-intro-toggle" id="voice-intro-toggle">
+            <i class="fas fa-volume-up" id="voice-icon"></i>
+            <span class="voice-badge">Voice Intro</span>
+        </button>
+        
+        <div class="voice-intro-panel" id="voice-intro-panel">
+            <div class="voice-panel-header">
+                <div class="voice-icon-animate">
+                    <i class="fas fa-microphone-alt"></i>
+                </div>
+                <div class="voice-info">
+                    <h4>Audio Introduction</h4>
+                    <p id="voice-status">Ready to play</p>
+                </div>
+                <button class="voice-close" id="voice-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="voice-controls">
+                <button class="voice-btn play-btn" id="play-btn">
+                    <i class="fas fa-play"></i>
+                    <span>Play Intro</span>
+                </button>
+                <button class="voice-btn pause-btn" id="pause-btn" style="display: none;">
+                    <i class="fas fa-pause"></i>
+                    <span>Pause</span>
+                </button>
+                <button class="voice-btn stop-btn" id="stop-btn">
+                    <i class="fas fa-stop"></i>
+                    <span>Stop</span>
+                </button>
+            </div>
+            
+            <div class="voice-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="voice-progress-fill"></div>
+                </div>
+                <div class="progress-time">
+                    <span id="current-time">0:00</span>
+                    <span id="total-time">0:00</span>
+                </div>
+            </div>
+            
+            <div class="voice-settings">
+                <label class="voice-checkbox">
+                    <input type="checkbox" id="autoplay-checkbox">
+                    <span>Auto-play on visit</span>
+                </label>
+                <div class="volume-control">
+                    <i class="fas fa-volume-down"></i>
+                    <input type="range" id="volume-slider" min="0" max="100" value="80">
+                    <i class="fas fa-volume-up"></i>
+                </div>
+            </div>
+            
+            <div class="voice-transcript">
+                <h5>Introduction Script:</h5>
+                <p>"Hello! I'm Rohit Kumar, a Software Engineer L3 at General Aeronautics. With over 2 years of experience in full-stack development, I specialize in Node.js, React, and building scalable backend systems. I've contributed to multiple live drone applications, achieving 40% efficiency improvement and 35% performance optimization. Welcome to my portfolio!"</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Tracker Widget -->
+    <div class="skills-tracker-widget" id="skills-tracker">
+        <div class="tracker-toggle" id="tracker-toggle">
+            <i class="fas fa-chart-line"></i>
+            <span class="tracker-badge">NEW</span>
+        </div>
+        
+        <div class="tracker-container" id="tracker-container">
+            <div class="tracker-header">
+                <div class="tracker-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="tracker-info">
+                    <h4>Skills Progress</h4>
+                    <p>Track your learning journey</p>
+                </div>
+                <button class="tracker-close" id="tracker-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="tracker-stats">
+                <div class="stat-card">
+                    <i class="fas fa-code"></i>
+                    <div class="stat-value" id="total-skills">12</div>
+                    <div class="stat-label">Total Skills</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-fire"></i>
+                    <div class="stat-value" id="streak-days">45</div>
+                    <div class="stat-label">Day Streak</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-star"></i>
+                    <div class="stat-value" id="skill-level">87%</div>
+                    <div class="stat-label">Mastery</div>
+                </div>
+            </div>
+            
+            <!-- Tabs Navigation -->
+            <div class="tracker-tabs">
+                <button class="tracker-tab active" data-tab="skills">
+                    <i class="fas fa-chart-bar"></i>
+                    Skills
+                </button>
+                <button class="tracker-tab" data-tab="challenges">
+                    <i class="fas fa-tasks"></i>
+                    Daily
+                </button>
+                <button class="tracker-tab" data-tab="achievements">
+                    <i class="fas fa-trophy"></i>
+                    Badges
+                </button>
+            </div>
+            
+            <!-- Skills Tab -->
+            <div class="tracker-content active" id="skills-tab">
+                <div class="tracker-skills">
+                    <div class="skill-track">
+                        <div class="skill-track-header">
+                            <span class="skill-name">
+                                <i class="fab fa-node-js"></i>
+                                Node.js
+                            </span>
+                            <span class="skill-value">95%</span>
+                        </div>
+                        <div class="skill-track-bar">
+                            <div class="skill-track-fill" style="width: 95%"></div>
+                        </div>
+                        <div class="skill-trend">
+                            <i class="fas fa-arrow-up"></i>
+                            +5% this week
+                        </div>
+                    </div>
+                    
+                    <div class="skill-track">
+                        <div class="skill-track-header">
+                            <span class="skill-name">
+                                <i class="fab fa-react"></i>
+                                React.js
+                            </span>
+                            <span class="skill-value">88%</span>
+                        </div>
+                        <div class="skill-track-bar">
+                            <div class="skill-track-fill" style="width: 88%"></div>
+                        </div>
+                        <div class="skill-trend">
+                            <i class="fas fa-arrow-up"></i>
+                            +3% this week
+                        </div>
+                    </div>
+                    
+                    <div class="skill-track">
+                        <div class="skill-track-header">
+                            <span class="skill-name">
+                                <i class="fas fa-code"></i>
+                                TypeScript
+                            </span>
+                            <span class="skill-value">93%</span>
+                        </div>
+                        <div class="skill-track-bar">
+                            <div class="skill-track-fill" style="width: 93%"></div>
+                        </div>
+                        <div class="skill-trend">
+                            <i class="fas fa-arrow-up"></i>
+                            +7% this week
+                        </div>
+                    </div>
+                    
+                    <div class="skill-track">
+                        <div class="skill-track-header">
+                            <span class="skill-name">
+                                <i class="fas fa-database"></i>
+                                SQL
+                            </span>
+                            <span class="skill-value">92%</span>
+                        </div>
+                        <div class="skill-track-bar">
+                            <div class="skill-track-fill" style="width: 92%"></div>
+                        </div>
+                        <div class="skill-trend">
+                            <i class="fas fa-arrow-up"></i>
+                            +4% this week
+                        </div>
+                    </div>
+                    
+                    <div class="skill-track">
+                        <div class="skill-track-header">
+                            <span class="skill-name">
+                                <i class="fab fa-aws"></i>
+                                AWS
+                            </span>
+                            <span class="skill-value">78%</span>
+                        </div>
+                        <div class="skill-track-bar">
+                            <div class="skill-track-fill" style="width: 78%"></div>
+                        </div>
+                        <div class="skill-trend improving">
+                            <i class="fas fa-fire"></i>
+                            Learning mode
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Daily Challenges Tab -->
+            <div class="tracker-content" id="challenges-tab">
+                <div class="challenges-list">
+                    <div class="challenge-item completed">
+                        <div class="challenge-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="challenge-details">
+                            <h5>Complete 2 LeetCode problems</h5>
+                            <p>Arrays & Strings</p>
+                        </div>
+                        <div class="challenge-xp">+50 XP</div>
+                    </div>
+                    
+                    <div class="challenge-item">
+                        <div class="challenge-icon">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <div class="challenge-details">
+                            <h5>Read documentation</h5>
+                            <p>React 18 new features</p>
+                        </div>
+                        <div class="challenge-xp">+30 XP</div>
+                    </div>
+                    
+                    <div class="challenge-item">
+                        <div class="challenge-icon">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <div class="challenge-details">
+                            <h5>Build mini project</h5>
+                            <p>15 min coding sprint</p>
+                        </div>
+                        <div class="challenge-xp">+100 XP</div>
+                    </div>
+                    
+                    <div class="daily-streak-calendar">
+                        <h5>This Week's Activity</h5>
+                        <div class="calendar-grid">
+                            <div class="calendar-day completed" data-tooltip="Monday">M</div>
+                            <div class="calendar-day completed" data-tooltip="Tuesday">T</div>
+                            <div class="calendar-day completed" data-tooltip="Wednesday">W</div>
+                            <div class="calendar-day completed" data-tooltip="Thursday">T</div>
+                            <div class="calendar-day active" data-tooltip="Friday">F</div>
+                            <div class="calendar-day" data-tooltip="Saturday">S</div>
+                            <div class="calendar-day" data-tooltip="Sunday">S</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Achievements Tab -->
+            <div class="tracker-content" id="achievements-tab">
+                <div class="achievements-grid">
+                    <div class="achievement-badge earned">
+                        <div class="badge-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h5>Hot Streak</h5>
+                        <p>45 days in a row</p>
+                    </div>
+                    
+                    <div class="achievement-badge earned">
+                        <div class="badge-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h5>Code Master</h5>
+                        <p>500+ commits</p>
+                    </div>
+                    
+                    <div class="achievement-badge earned">
+                        <div class="badge-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h5>Expert Level</h5>
+                        <p>5 skills at 90%+</p>
+                    </div>
+                    
+                    <div class="achievement-badge locked">
+                        <div class="badge-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h5>Elite Coder</h5>
+                        <p>100 day streak</p>
+                    </div>
+                    
+                    <div class="achievement-badge locked">
+                        <div class="badge-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h5>10X Developer</h5>
+                        <p>All skills 95%+</p>
+                    </div>
+                    
+                    <div class="achievement-badge locked">
+                        <div class="badge-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h5>Full Stack Pro</h5>
+                        <p>Master 10 skills</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tracker-footer">
+                <p class="tracker-info-text">
+                    <i class="fas fa-chart-line"></i>
+                    Track your progress daily and unlock achievements!
+                </p>
+            </div>
         </div>
     </div>
 
@@ -1253,6 +1974,7 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/voice-intro.js"></script>
 </body>
 </html>

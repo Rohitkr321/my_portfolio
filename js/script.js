@@ -94,22 +94,71 @@ window.addEventListener('scroll', function() {
 });
 
 // Back to top button
+// ===== SCROLL PROGRESS & ENHANCED BACK-TO-TOP =====
 const backToTopBtn = document.getElementById('back-to-top');
+const scrollProgressBar = document.getElementById('scroll-progress');
+const progressRingCircle = document.querySelector('.progress-ring-circle');
+const scrollPercentageText = document.getElementById('scroll-percentage');
+const circumference = 2 * Math.PI * 26; // 2 * PI * radius
 
-window.addEventListener('scroll', function() {
-    if (window.pageYOffset > 300) {
-        backToTopBtn.classList.add('visible');
-    } else {
-        backToTopBtn.classList.remove('visible');
+// Set initial stroke dasharray
+if (progressRingCircle) {
+    progressRingCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+    progressRingCircle.style.strokeDashoffset = circumference;
+}
+
+// Update scroll progress
+function updateScrollProgress() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    
+    // Update progress bar
+    if (scrollProgressBar) {
+        scrollProgressBar.style.width = scrollPercent + '%';
     }
-});
+    
+    // Update progress ring
+    if (progressRingCircle) {
+        const offset = circumference - (scrollPercent / 100) * circumference;
+        progressRingCircle.style.strokeDashoffset = offset;
+    }
+    
+    // Update percentage text
+    if (scrollPercentageText) {
+        scrollPercentageText.textContent = Math.round(scrollPercent) + '%';
+    }
+    
+    // Show/hide back-to-top button
+    if (backToTopBtn) {
+        if (scrollTop > 300) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    }
+}
 
-backToTopBtn.addEventListener('click', function() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+// Throttle scroll events for better performance
+let scrollTimeout;
+window.addEventListener('scroll', function() {
+    if (scrollTimeout) {
+        window.cancelAnimationFrame(scrollTimeout);
+    }
+    scrollTimeout = window.requestAnimationFrame(function() {
+        updateScrollProgress();
     });
 });
+
+// Back to top click
+if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
 
 // Typing animation for hero section
 function typeWriter(element, text, speed = 100) {
@@ -1605,3 +1654,633 @@ function initDynamicHeader() {
 document.addEventListener('DOMContentLoaded', function() {
     initDynamicHeader();
 });
+
+// ===== PROJECT FILTER FUNCTIONALITY =====
+function initProjectFilter() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    if (!filterButtons.length || !projectCards.length) return;
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filterValue = this.getAttribute('data-filter');
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter projects with smooth animation
+            projectCards.forEach((card, index) => {
+                const categories = card.getAttribute('data-category');
+                
+                // Add staggered animation delay
+                setTimeout(() => {
+                    if (filterValue === 'all') {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.classList.remove('hide');
+                            card.classList.add('show');
+                        }, 10);
+                    } else {
+                        if (categories && categories.includes(filterValue)) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.classList.remove('hide');
+                                card.classList.add('show');
+                            }, 10);
+                        } else {
+                            card.classList.remove('show');
+                            card.classList.add('hide');
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 400);
+                        }
+                    }
+                }, index * 50); // Stagger animation
+            });
+        });
+    });
+}
+
+// Initialize project filter
+document.addEventListener('DOMContentLoaded', initProjectFilter);
+
+// ===== SKILLS TRACKER WIDGET FUNCTIONALITY =====
+function initSkillsTracker() {
+    const trackerToggle = document.getElementById('tracker-toggle');
+    const trackerContainer = document.getElementById('tracker-container');
+    const trackerClose = document.getElementById('tracker-close');
+    const trackerTabs = document.querySelectorAll('.tracker-tab');
+    const trackerContents = document.querySelectorAll('.tracker-content');
+    
+    if (!trackerToggle || !trackerContainer) return;
+    
+    let isOpen = false;
+    
+    // Toggle tracker
+    trackerToggle.addEventListener('click', () => {
+        isOpen = !isOpen;
+        trackerContainer.classList.toggle('active', isOpen);
+        
+        // Animate skill bars when opening
+        if (isOpen) {
+            animateSkillBars();
+            animateStats();
+        }
+    });
+    
+    // Close tracker
+    if (trackerClose) {
+        trackerClose.addEventListener('click', () => {
+            isOpen = false;
+            trackerContainer.classList.remove('active');
+        });
+    }
+    
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+        const tracker = document.getElementById('skills-tracker');
+        if (!tracker.contains(e.target) && isOpen) {
+            isOpen = false;
+            trackerContainer.classList.remove('active');
+        }
+    });
+    
+    // Tab switching functionality
+    trackerTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetTab = tab.getAttribute('data-tab');
+            
+            // Remove active class from all tabs and contents
+            trackerTabs.forEach(t => t.classList.remove('active'));
+            trackerContents.forEach(c => c.classList.remove('active'));
+            
+            // Add active class to clicked tab and corresponding content
+            tab.classList.add('active');
+            const targetContent = document.getElementById(`${targetTab}-tab`);
+            if (targetContent) {
+                targetContent.classList.add('active');
+                
+                // Animate skill bars when switching to skills tab
+                if (targetTab === 'skills') {
+                    setTimeout(() => animateSkillBars(), 100);
+                }
+                
+                // Animate challenges when switching to challenges tab
+                if (targetTab === 'challenges') {
+                    animateChallenges();
+                }
+                
+                // Animate badges when switching to achievements tab
+                if (targetTab === 'achievements') {
+                    animateBadges();
+                }
+            }
+        });
+    });
+    
+    // Challenge item click to toggle completion
+    const challengeItems = document.querySelectorAll('.challenge-item');
+    challengeItems.forEach(item => {
+        item.addEventListener('click', () => {
+            if (!item.classList.contains('completed')) {
+                item.classList.add('completed');
+                // Add celebration effect
+                const xp = item.querySelector('.challenge-xp');
+                if (xp) {
+                    xp.style.animation = 'none';
+                    setTimeout(() => {
+                        xp.style.animation = 'xpEarn 0.5s ease-out';
+                    }, 10);
+                }
+            }
+        });
+    });
+    
+    // Animate skill bars
+    function animateSkillBars() {
+        const skillBars = document.querySelectorAll('.skill-track-fill');
+        skillBars.forEach((bar, index) => {
+            const targetWidth = bar.style.width;
+            bar.style.width = '0%';
+            setTimeout(() => {
+                bar.style.width = targetWidth;
+            }, 100 + index * 100);
+        });
+    }
+    
+    // Animate statistics
+    function animateStats() {
+        const statValues = document.querySelectorAll('.stat-value');
+        statValues.forEach(stat => {
+            const value = stat.textContent;
+            const isPercentage = value.includes('%');
+            const numericValue = parseInt(value);
+            
+            if (isNaN(numericValue)) return;
+            
+            let current = 0;
+            const increment = numericValue / 30;
+            const interval = setInterval(() => {
+                current += increment;
+                if (current >= numericValue) {
+                    stat.textContent = isPercentage ? numericValue + '%' : numericValue;
+                    clearInterval(interval);
+                } else {
+                    stat.textContent = isPercentage ? Math.floor(current) + '%' : Math.floor(current);
+                }
+            }, 30);
+        });
+    }
+    
+    // Animate challenges
+    function animateChallenges() {
+        const challenges = document.querySelectorAll('.challenge-item');
+        challenges.forEach((challenge, index) => {
+            challenge.style.opacity = '0';
+            challenge.style.transform = 'translateX(-20px)';
+            setTimeout(() => {
+                challenge.style.transition = 'all 0.5s ease';
+                challenge.style.opacity = '1';
+                challenge.style.transform = 'translateX(0)';
+            }, index * 100);
+        });
+    }
+    
+    // Animate badges
+    function animateBadges() {
+        const badges = document.querySelectorAll('.achievement-badge');
+        badges.forEach((badge, index) => {
+            badge.style.opacity = '0';
+            badge.style.transform = 'scale(0.8) rotateY(180deg)';
+            setTimeout(() => {
+                badge.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                badge.style.opacity = '1';
+                badge.style.transform = 'scale(1) rotateY(0deg)';
+            }, index * 100);
+        });
+    }
+}
+
+// Add XP earn animation to CSS dynamically
+const xpStyle = document.createElement('style');
+xpStyle.textContent = `
+    @keyframes xpEarn {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2) translateY(-5px); }
+        100% { transform: scale(1); }
+    }
+`;
+document.head.appendChild(xpStyle);
+
+// Initialize Skills Tracker
+document.addEventListener('DOMContentLoaded', initSkillsTracker);
+
+// ===== GITHUB ACTIVITY TRACKER WIDGET FUNCTIONALITY =====
+function initGitHubTracker() {
+    const githubToggle = document.getElementById('github-toggle');
+    const githubContainer = document.getElementById('github-container');
+    const githubClose = document.getElementById('github-close');
+    
+    if (!githubToggle || !githubContainer) return;
+    
+    let isOpen = false;
+    
+    // Toggle GitHub tracker
+    githubToggle.addEventListener('click', () => {
+        isOpen = !isOpen;
+        githubContainer.classList.toggle('active', isOpen);
+        
+        // Animate stats when opening
+        if (isOpen) {
+            animateGitHubStats();
+        }
+    });
+    
+    // Close GitHub tracker
+    if (githubClose) {
+        githubClose.addEventListener('click', () => {
+            isOpen = false;
+            githubContainer.classList.remove('active');
+        });
+    }
+    
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+        const tracker = document.getElementById('github-tracker');
+        if (!tracker.contains(e.target) && isOpen) {
+            isOpen = false;
+            githubContainer.classList.remove('active');
+        }
+    });
+    
+    // Animate GitHub statistics
+    function animateGitHubStats() {
+        const statNumbers = document.querySelectorAll('.github-stat-card .stat-number');
+        statNumbers.forEach(stat => {
+            const value = stat.textContent;
+            const numericValue = parseInt(value);
+            
+            if (isNaN(numericValue)) return;
+            
+            let current = 0;
+            const increment = numericValue / 30;
+            const interval = setInterval(() => {
+                current += increment;
+                if (current >= numericValue) {
+                    stat.textContent = numericValue;
+                    clearInterval(interval);
+                } else {
+                    stat.textContent = Math.floor(current);
+                }
+            }, 30);
+        });
+    }
+}
+
+// ===== DYNAMIC TIME-BASED GREETING =====
+function initDynamicGreeting() {
+    const greetingElement = document.getElementById('dynamic-greeting');
+    if (!greetingElement) return;
+    
+    const currentHour = new Date().getHours();
+    let greetingText = '';
+    let greetingIcon = '';
+    let greetingClass = '';
+    
+    if (currentHour >= 5 && currentHour < 12) {
+        greetingText = 'Good Morning, I\'m';
+        greetingIcon = 'fa-sun';
+        greetingClass = 'greeting-morning';
+    } else if (currentHour >= 12 && currentHour < 17) {
+        greetingText = 'Good Afternoon, I\'m';
+        greetingIcon = 'fa-cloud-sun';
+        greetingClass = 'greeting-afternoon';
+    } else if (currentHour >= 17 && currentHour < 21) {
+        greetingText = 'Good Evening, I\'m';
+        greetingIcon = 'fa-cloud-moon';
+        greetingClass = 'greeting-evening';
+    } else {
+        greetingText = 'Good Night, I\'m';
+        greetingIcon = 'fa-moon';
+        greetingClass = 'greeting-night';
+    }
+    
+    greetingElement.innerHTML = `
+        <i class="greeting-icon fas ${greetingIcon}"></i>
+        ${greetingText}
+    `;
+    greetingElement.classList.add(greetingClass);
+}
+
+// Initialize new features
+document.addEventListener('DOMContentLoaded', () => {
+    initDynamicGreeting();
+    initSkillsComparisonChart();
+    initComparisonBarsAnimation();
+    initVoiceIntroduction();
+});
+
+// ===== SKILLS COMPARISON RADAR CHART =====
+function initSkillsComparisonChart() {
+    const canvas = document.getElementById('skillsRadarChart');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    
+    // Detect mobile screen
+    const isMobile = window.innerWidth <= 768;
+    const isSmallMobile = window.innerWidth <= 480;
+    
+    // Adjust font sizes and point sizes for mobile
+    const labelFontSize = isSmallMobile ? 8 : isMobile ? 9 : 12;
+    const tickFontSize = isSmallMobile ? 7 : isMobile ? 8 : 11;
+    const pointRadius = isSmallMobile ? 2.5 : isMobile ? 3.5 : 5;
+    const pointHoverRadius = isSmallMobile ? 4 : isMobile ? 5 : 7;
+    const chartPadding = isSmallMobile ? 8 : isMobile ? 12 : 15;
+    const labelPadding = isSmallMobile ? 5 : isMobile ? 8 : 10;
+    
+    new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['Backend Dev', 'Frontend Dev', 'Database', 'Cloud & DevOps', 'System Arch'],
+            datasets: [
+                {
+                    label: 'Current Level',
+                    data: [95, 88, 92, 78, 85],
+                    backgroundColor: 'rgba(102, 126, 234, 0.2)',
+                    borderColor: '#667eea',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#667eea',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#667eea',
+                    pointRadius: pointRadius,
+                    pointHoverRadius: pointHoverRadius
+                },
+                {
+                    label: 'Target Level',
+                    data: [98, 95, 96, 90, 92],
+                    backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                    borderColor: 'rgba(102, 126, 234, 0.5)',
+                    borderWidth: 2,
+                    borderDash: [5, 5],
+                    pointBackgroundColor: 'rgba(102, 126, 234, 0.5)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(102, 126, 234, 0.5)',
+                    pointRadius: pointRadius - 1,
+                    pointHoverRadius: pointHoverRadius - 1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    top: chartPadding,
+                    bottom: chartPadding,
+                    left: chartPadding,
+                    right: chartPadding
+                }
+            },
+            scales: {
+                r: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        stepSize: 20,
+                        color: 'rgba(255, 255, 255, 0.6)',
+                        backdropColor: 'transparent',
+                        font: {
+                            size: tickFontSize
+                        },
+                        display: isMobile ? false : true
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)',
+                        circular: true
+                    },
+                    pointLabels: {
+                        color: 'rgba(255, 255, 255, 0.8)',
+                        font: {
+                            size: labelFontSize,
+                            weight: '600'
+                        },
+                        padding: labelPadding,
+                        centerPointLabels: true
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                    titleColor: '#fff',
+                    bodyColor: '#fff',
+                    borderColor: '#667eea',
+                    borderWidth: 1,
+                    padding: isMobile ? 8 : 12,
+                    displayColors: true,
+                    titleFont: {
+                        size: isMobile ? 11 : 13
+                    },
+                    bodyFont: {
+                        size: isMobile ? 10 : 12
+                    },
+                    callbacks: {
+                        label: function(context) {
+                            return context.dataset.label + ': ' + context.parsed.r + '%';
+                        }
+                    }
+                }
+            },
+            animation: {
+                duration: 2000,
+                easing: 'easeInOutQuart'
+            }
+        }
+    });
+}
+
+// ===== ANIMATE COMPARISON BARS ON SCROLL =====
+function initComparisonBarsAnimation() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const fills = entry.target.querySelectorAll('.comp-fill');
+                fills.forEach((fill, index) => {
+                    const targetWidth = fill.style.width;
+                    fill.style.width = '0%';
+                    setTimeout(() => {
+                        fill.style.width = targetWidth;
+                    }, 100 + index * 200);
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    document.querySelectorAll('.skill-comparison-item').forEach(item => {
+        observer.observe(item);
+    });
+}
+
+// ===== ANALYTICS DASHBOARD =====
+function initAnalyticsDashboard() {
+    // Animate analytics values on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateAnalyticsValues();
+                animateCountryBars();
+                initVisitorsChart();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    const dashboard = document.getElementById('analytics-dashboard');
+    if (dashboard) {
+        observer.observe(dashboard);
+    }
+}
+
+function animateAnalyticsValues() {
+    // Total Views
+    animateCounter('total-views', 15234, 1500);
+    
+    // Unique Visitors
+    animateCounter('unique-visitors', 8945, 1500);
+    
+    // Average Time
+    const avgTimeElement = document.getElementById('avg-time');
+    if (avgTimeElement) {
+        let seconds = 0;
+        const targetSeconds = 187; // 3m 7s
+        const interval = setInterval(() => {
+            seconds += 3;
+            if (seconds >= targetSeconds) {
+                seconds = targetSeconds;
+                clearInterval(interval);
+            }
+            const minutes = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            avgTimeElement.textContent = `${minutes}m ${secs}s`;
+        }, 20);
+    }
+    
+    // Click Rate
+    animateCounter('click-rate', 67.5, 1500, true);
+}
+
+function animateCounter(elementId, target, duration, isPercentage = false) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    
+    let current = 0;
+    const increment = target / (duration / 20);
+    const interval = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = isPercentage ? target.toFixed(1) + '%' : Math.floor(target).toLocaleString();
+            clearInterval(interval);
+        } else {
+            element.textContent = isPercentage ? current.toFixed(1) + '%' : Math.floor(current).toLocaleString();
+        }
+    }, 20);
+}
+
+function animateCountryBars() {
+    const countryFills = document.querySelectorAll('.country-fill');
+    countryFills.forEach((fill, index) => {
+        const targetWidth = fill.style.width;
+        fill.style.width = '0%';
+        setTimeout(() => {
+            fill.style.width = targetWidth;
+        }, 100 + index * 150);
+    });
+}
+
+function initVisitorsChart() {
+    const canvas = document.getElementById('visitorsChart');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [{
+                label: 'Visitors',
+                data: [1200, 1900, 1500, 2400, 2800, 3200, 3800, 4200, 4800, 5200, 5800, 6500],
+                borderColor: '#667eea',
+                backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4,
+                pointRadius: 5,
+                pointHoverRadius: 7,
+                pointBackgroundColor: '#667eea',
+                pointBorderColor: '#fff',
+                pointBorderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: 'rgba(255, 255, 255, 0.6)',
+                        callback: function(value) {
+                            return value >= 1000 ? (value / 1000).toFixed(1) + 'k' : value;
+                        }
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)',
+                        borderColor: 'rgba(255, 255, 255, 0.2)'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: 'rgba(255, 255, 255, 0.6)'
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.05)',
+                        borderColor: 'rgba(255, 255, 255, 0.2)'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                    titleColor: '#fff',
+                    bodyColor: '#fff',
+                    borderColor: '#667eea',
+                    borderWidth: 1,
+                    padding: 12,
+                    displayColors: false,
+                    callbacks: {
+                        label: function(context) {
+                            return 'Visitors: ' + context.parsed.y.toLocaleString();
+                        }
+                    }
+                }
+            },
+            animation: {
+                duration: 2000,
+                easing: 'easeInOutQuart'
+            }
+        }
+    });
+}
