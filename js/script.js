@@ -962,9 +962,29 @@ function initChatbot() {
         }
     }
     
-    // Get bot response based on user input
+    // Get bot response based on user input (AI Agent)
     function getBotResponse(userMessage) {
         const message = userMessage.toLowerCase();
+        
+        // Greetings
+        if (message.match(/\b(hi|hello|hey|greetings|good morning|good afternoon|good evening)\b/)) {
+            const greetings = [
+                "Hello! 👋 I'm Rohit's AI Assistant. I can help you with information about his experience, skills, projects, and services. What would you like to know?",
+                "Hi there! 😊 I'm here to answer any questions about Rohit's professional background. Feel free to ask me anything!",
+                "Hey! Welcome! 🤖 I can provide details about Rohit's work, expertise, and accomplishments. How can I assist you?"
+            ];
+            return greetings[Math.floor(Math.random() * greetings.length)];
+        }
+        
+        // Thank you
+        if (message.match(/\b(thanks|thank you|appreciated|thx)\b/)) {
+            return "You're welcome! 😊 Feel free to ask if you have any other questions about Rohit's work or services!";
+        }
+        
+        // Goodbye
+        if (message.match(/\b(bye|goodbye|see you|take care)\b/)) {
+            return "Goodbye! 👋 Feel free to come back anytime if you have more questions. Have a great day!";
+        }
         
         // Check each FAQ category
         for (const [category, data] of Object.entries(faqData)) {
@@ -980,9 +1000,13 @@ function initChatbot() {
             }
         }
         
-        // Default response
-        const defaultAnswers = faqData.default.answers;
-        return defaultAnswers[Math.floor(Math.random() * defaultAnswers.length)];
+        // Intelligent fallback for unknown questions
+        if (message.includes('?')) {
+            return "That's a great question! 🤔 While I might not have specific information about that, I can tell you about Rohit's experience, technical skills, projects, or services. Try asking about:\n\n• His work experience and career\n• Technologies and skills he uses\n• Projects he's built\n• How to contact him\n• Services he offers\n\nWhat would you like to know?";
+        }
+        
+        // Generic response for statements
+        return "I'm Rohit's AI Assistant! 🤖 I can help you learn about his professional background, technical expertise, and projects. Feel free to ask me anything about his work, skills, or how to get in touch!";
     }
     
     // Get current time
